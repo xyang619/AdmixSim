@@ -181,21 +181,21 @@ void PopModel::evolve(double len)
 {
 	int K = getK();
 	int T = getT();
-	for (int i = 0; i < T; ++i)
+	for (int t = 0; t < T; ++t)
 	{
 		int numbHapsPrev = 0;
-		int curNumbHaps = nes.at(i) * 2; //number of haplotypes
+		int curNumbHaps = nes.at(t) * 2; //number of haplotypes
 		int numbHaps[K];
 		int sumNumbHaps = 0;
 		for (int j = 0; j < K; ++j)
 		{
-			numbHaps[j] = (int) (curNumbHaps * props.at(i).at(j));
+			numbHaps[j] = (int) (curNumbHaps * props.at(t).at(j));
 			sumNumbHaps += numbHaps[j];
 		}
 		// prepare individuals in current generation
 		numbHapsPrev = curNumbHaps - sumNumbHaps;
 		std::vector<Chrom> hapsCur;
-		if (numbHapsPrev > 0)
+		if (numbHapsPrev > 0 && t > 0)
 		{
 			hapsCur = pop.sample(numbHapsPrev);
 		}
@@ -214,7 +214,7 @@ void PopModel::evolve(double len)
 			}
 		}
 		Population tmpPop(hapsCur);
-		tmpPop.evolve(nes.at(i));
+		tmpPop.evolve(nes.at(t));
 		pop = tmpPop;
 	}
 }
