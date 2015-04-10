@@ -18,16 +18,18 @@ public:
 	void echo();
 	int getNSample() const;
 	double getLength() const;
-	std::string getModfile() const;
-	std::string getInput() const;
-	std::string getOutput() const;
+	std::string getModFile() const;
+	std::string getMapFile() const;
+	std::string getAncFile() const;
+	std::string getOutPrefix() const;
 private:
 	int nsample;
 	unsigned long seed;
 	double length;
 	std::string modfile;
-	std::string input;
-	std::string output;
+	std::string mapfile;
+	std::string ancfile;
+	std::string outPrefix;
 	void help();
 
 };

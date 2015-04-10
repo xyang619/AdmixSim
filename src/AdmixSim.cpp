@@ -36,12 +36,12 @@ int main(int argc, char **argv)
 	par = new Param(argc, argv);
 	par->echo();
 	nsample = par->getNSample();
-	modfile = par->getModfile();
+	modfile = par->getModFile();
 	length = par->getLength();
-	mapfile = par->getInput() + ".map";
-	ancfile = par->getInput() + ".hap";
-	hapfile = par->getOutput() + ".hap";
-	segfile = par->getOutput() + ".seg";
+	mapfile = par->getMapFile();
+	ancfile = par->getAncFile();
+	hapfile = par->getOutPrefix() + ".hap";
+	segfile = par->getOutPrefix() + ".seg";
 	model = new PopModel(modfile);
 
 	ifstream mfin(mapfile.c_str());
