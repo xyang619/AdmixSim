@@ -1,12 +1,12 @@
 /*
- * Segment.h
+ * Segment.hpp
  *
  *  Created on: Sep 26, 2014
  *      Author: xiong_yang
  */
 
-#ifndef SEGMENT_H_
-#define SEGMENT_H_
+#ifndef SEGMENT_HPP_
+#define SEGMENT_HPP_
 
 class Segment
 {
@@ -27,4 +27,4 @@ public:
 	void setLabel(int label);
 };
 
-#endif /* SEGMENT_H_ */
+#endif /* SEGMENT_HPP_ */

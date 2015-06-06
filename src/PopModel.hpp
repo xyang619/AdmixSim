@@ -1,16 +1,16 @@
 /*
- * GeneralModel.h
+ * GeneralModel.hpp
  *
  *  Created on: Nov 9, 2014
  *      Author: young
  */
 
-#ifndef POPMODEL_H_
-#define POPMODEL_H_
+#ifndef POPMODEL_HPP_
+#define POPMODEL_HPP_
 
 #include <string>
 #include <vector>
-#include "Population.h"
+#include "Population.hpp"
 
 class PopModel
 {
@@ -32,4 +32,4 @@ public:
 	void evolve(double len);
 };
 
-#endif /* POPMODEL_H_ */
+#endif /* POPMODEL_HPP_ */

@@ -6,8 +6,8 @@
  */
 
 #include <cstdlib>
-#include "ChromPair.h"
-#include "Population.h"
+#include "ChromPair.hpp"
+#include "Population.hpp"
 
 Population::Population()
 {

@@ -1,14 +1,14 @@
 /*
- * Population.h
+ * Population.hpp
  *
  *  Created on: Sep 28, 2014
  *      Author: xiong_yang
  */
 
-#ifndef POPULATION_H_
-#define POPULATION_H_
+#ifndef POPULATION_HPP_
+#define POPULATION_HPP_
 
-#include "Chrom.h"
+#include "Chrom.hpp"
 
 class Population
 {
@@ -25,4 +25,4 @@ public:
 	std::vector<Population> split(double prop);
 };
 
-#endif /* POPULATION_H_ */
+#endif /* POPULATION_HPP_ */

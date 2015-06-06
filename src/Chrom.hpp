@@ -1,16 +1,16 @@
 /*
- * Chrom.h
+ * Chrom.hpp
  *
  *  Created on: Sep 26, 2014
  *      Author: xiong_yang
  */
 
-#ifndef CHROM_H_
-#define CHROM_H_
+#ifndef CHROM_HPP_
+#define CHROM_HPP_
 
 #include <vector>
 #include <iostream>
-#include "Segment.h"
+#include "Segment.hpp"
 
 class Chrom
 {
@@ -32,4 +32,4 @@ public:
 	void print() const;
 };
 
-#endif /* CHROM_H_ */
+#endif /* CHROM_HPP_ */

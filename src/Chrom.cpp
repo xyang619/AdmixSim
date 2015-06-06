@@ -6,7 +6,7 @@
  */
 
 #include <iostream>
-#include "Chrom.h"
+#include "Chrom.hpp"
 using namespace std;
 Chrom::Chrom()
 {

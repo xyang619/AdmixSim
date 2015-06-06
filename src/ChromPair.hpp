@@ -1,14 +1,14 @@
 /*
- * ChromPair.h
+ * ChromPair.hpp
  *
  *  Created on: Sep 26, 2014
  *      Author: xiong_yang
  */
 
-#ifndef CHROMPAIR_H_
-#define CHROMPAIR_H_
+#ifndef CHROMPAIR_HPP_
+#define CHROMPAIR_HPP_
 
-#include "Chrom.h"
+#include "Chrom.hpp"
 
 class ChromPair
 {
@@ -27,4 +27,4 @@ public:
 	ChromPair & recombine();
 };
 
-#endif /* CHROMPAIR_H_ */
+#endif /* CHROMPAIR_HPP_ */

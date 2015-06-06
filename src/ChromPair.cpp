@@ -9,7 +9,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <algorithm>
-#include "ChromPair.h"
+#include "ChromPair.hpp"
 
 ChromPair::ChromPair()
 {

@@ -1,4 +1,4 @@
-CXX=g++
+CXX = g++
 CXXFLAGS =	-O2 -g -Wall
 
 SRCS = Segment.cpp Chrom.cpp ChromPair.cpp Population.cpp PopModel.cpp Utils.cpp Param.cpp AdmixSim.cpp

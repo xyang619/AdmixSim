@@ -8,12 +8,12 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include "Param.h"
+#include "Param.hpp"
 
 using namespace std;
 
 Param::Param(int argc, char ** argv) :
-		nsample(10), seed(0), length(1.0), modfile(""), mapfile(""), ancfile(""), outPrefix("output")
+		nsample(10), seed(0), length(1.0), modfile(""), input(""), output("output")
 {
 	if (argc > 1 && (string(argv[1]) == "-h" || string(argv[1]) == "--help"))
 	{
@@ -21,7 +21,7 @@ Param::Param(int argc, char ** argv) :
 		exit(0);
 	}
 
-	if (argc < 7)
+	if (argc < 5)
 	{
 		cerr << "Need more arguments than provided, use -h/--help to get more help" << endl;
 		exit(1);
@@ -48,17 +48,13 @@ Param::Param(int argc, char ** argv) :
 		{
 			nsample = atoi(argv[++i]);
 		}
-		else if (arg == "-m" || arg == "--map")
+		else if (arg == "-i" || arg == "--input")
 		{
-			mapfile = string(argv[++i]);
-		}
-		else if (arg == "-a" || arg == "--anchap")
-		{
-			ancfile = string(argv[++i]);
+			input = string(argv[++i]);
 		}
 		else if (arg == "-o" || arg == "--output")
 		{
-			outPrefix = string(argv[++i]);
+			output = string(argv[++i]);
 		}
 		else if (arg == "-s" || arg == "--seed")
 		{
@@ -72,20 +68,15 @@ Param::Param(int argc, char ** argv) :
 		cerr << "Model description file must be specified" << endl;
 		abort();
 	}
-	if (mapfile.size() == 0)
+	if (input.size() == 0)
 	{
-		cerr << "Map file must be specified" << endl;
+		cerr << "Input file must be specified" << endl;
 		abort();
 	}
-	if (ancfile.size() == 0)
-	{
-		cerr << "Ancestral haplotype file must be specified" << endl;
-		abort();
-	}
-	if (outPrefix.size() == 0)
+	if (output.size() == 0)
 	{
 		cerr << "Warning, output prefix using default" << endl;
-		outPrefix = "output";
+		output = "output";
 	}
 	if (!givenSeed)
 	{
@@ -102,34 +93,32 @@ Param::~Param()
 
 void Param::help()
 {
-	cout << "==============================================================================" << endl;
+	cout << "------------------------------------------------------------------------------" << endl;
 	cout << "AdmixSim v1.0.3" << endl;
 	cout << "AdmixSim is designed to simulate data for admixed population under various and complex scenarios." << endl;
 	cout << "Arguments:" << endl;
 	cout << "\t-h/--help\tprint help message[optional]" << endl;
 	cout << "\t-f/--file\tmodel description file [required]" << endl;
-	cout << "\t-m/--map\tmapfile for the loci [required]" << endl;
-	cout << "\t-a/--anchap\tcombined ancestral haplotype file [required]" << endl;
+	cout << "\t-i/--input\tprefix of input file [required]" << endl;
 	cout << "\t-l/--length\tlength of chromosome simulated [optional, default=1]" << endl;
 	cout << "\t-n/--nsample\tnumber of individuals sampled [optional, default=10]" << endl;
 	cout << "\t-o/--output\tprefix of output files [optional, default=output]" << endl;
 	cout << "\t-s/--seed\tseed of random generator [optional, default=time]" << endl;
-	cout << "==============================================================================" << endl;
+	cout << "------------------------------------------------------------------------------" << endl;
 
 }
 
 void Param::echo()
 {
-	cout << "==============================================================================" << endl;
+	cout << "------------------------------------------------------------------------------" << endl;
 	cout << "Arguments summary:" << endl;
 	cout << "chromosome length: " << length << endl;
 	cout << "number of samples: " << nsample << endl;
 	cout << "model file: " << modfile << endl;
-	cout << "map file: " << mapfile << endl;
-	cout << "anchap file: " << ancfile << endl;
-	cout << "output prefix: " << outPrefix << endl;
+	cout << "input file: " << input << ".hap " << input << ".map" << endl;
+	cout << "output prefix: " << output << endl;
 	cout << "random seed: " << seed << endl;
-	cout << "==============================================================================" << endl;
+	cout << "------------------------------------------------------------------------------" << endl;
 }
 
 int Param::getNSample() const
@@ -142,23 +131,18 @@ double Param::getLength() const
 	return length;
 }
 
-string Param::getModFile() const
+string Param::getModfile() const
 {
 	return modfile;
 }
 
-string Param::getMapFile() const
+string Param::getInput() const
 {
-	return mapfile;
+	return input;
 }
 
-string Param::getAncFile() const
+string Param::getOutput() const
 {
-	return ancfile;
-}
-
-string Param::getOutPrefix() const
-{
-	return outPrefix;
+	return output;
 }
 

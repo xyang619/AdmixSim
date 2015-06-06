@@ -1,12 +1,12 @@
 /*
- * Param.h
+ * Param.hpp
  *
  *  Created on: Apr 7, 2015
  *      Author: young
  */
 
-#ifndef PARAM_H_
-#define PARAM_H_
+#ifndef PARAM_HPP_
+#define PARAM_HPP_
 
 #include <string>
 
@@ -18,20 +18,18 @@ public:
 	void echo();
 	int getNSample() const;
 	double getLength() const;
-	std::string getModFile() const;
-	std::string getMapFile() const;
-	std::string getAncFile() const;
-	std::string getOutPrefix() const;
+	std::string getModfile() const;
+	std::string getInput() const;
+	std::string getOutput() const;
 private:
 	int nsample;
 	unsigned long seed;
 	double length;
 	std::string modfile;
-	std::string mapfile;
-	std::string ancfile;
-	std::string outPrefix;
+	std::string input;
+	std::string output;
 	void help();
 
 };
 
-#endif /* PARAM_H_ */
+#endif /* PARAM_HPP_ */

@@ -11,9 +11,9 @@
 #include <map>
 #include <vector>
 #include <cstdlib>
-#include "Param.h"
-#include "PopModel.h"
-#include "Utils.h"
+#include "Param.hpp"
+#include "PopModel.hpp"
+#include "Utils.hpp"
 
 using namespace std;
 
@@ -36,12 +36,12 @@ int main(int argc, char **argv)
 	par = new Param(argc, argv);
 	par->echo();
 	nsample = par->getNSample();
-	modfile = par->getModFile();
+	modfile = par->getModfile();
 	length = par->getLength();
-	mapfile = par->getMapFile();
-	ancfile = par->getAncFile();
-	hapfile = par->getOutPrefix() + ".hap";
-	segfile = par->getOutPrefix() + ".seg";
+	mapfile = par->getInput() + ".map";
+	ancfile = par->getInput() + ".hap";
+	hapfile = par->getOutput() + ".hap";
+	segfile = par->getOutput() + ".seg";
 	model = new PopModel(modfile);
 
 	ifstream mfin(mapfile.c_str());
@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 	{
 		if (nInd < nAnc)
 		{
-			anchaps.at(key).push_back(line);
+			anchaps[key].push_back(line);
 			++nInd;
 		}
 		else
@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 			++key;
 			nInd = 0;
 			nAnc = model->getNhaps().at(key - 1);
-			anchaps.at(key).push_back(line);
+			anchaps[key].push_back(line);
 			++nInd;
 		}
 	}
@@ -113,7 +113,7 @@ int main(int argc, char **argv)
 			int index = seg.getLabel() % 10000;
 			double start = seg.getStart();
 			double end = seg.getEnd();
-			outStr = outStr + copySeq(poss, anchaps.at(key).at(index), start, end);
+			outStr = outStr + copySeq(poss, anchaps[key].at(index), start, end);
 		}
 		hapout << outStr << endl;
 

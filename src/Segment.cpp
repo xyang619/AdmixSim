@@ -5,7 +5,7 @@
  *      Author: xiong_yang
  */
 
-#include "Segment.h"
+#include "Segment.hpp"
 
 Segment::Segment() :
 		start(0), end(0), label(1)
