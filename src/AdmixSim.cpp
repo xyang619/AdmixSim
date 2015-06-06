@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 	{
 		if (nInd < nAnc)
 		{
-			anchaps[key].push_back(line);
+			anchaps.at(key).push_back(line);
 			++nInd;
 		}
 		else
@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 			++key;
 			nInd = 0;
 			nAnc = model->getNhaps().at(key - 1);
-			anchaps[key].push_back(line);
+			anchaps.at(key).push_back(line);
 			++nInd;
 		}
 	}
@@ -113,7 +113,7 @@ int main(int argc, char **argv)
 			int index = seg.getLabel() % 10000;
 			double start = seg.getStart();
 			double end = seg.getEnd();
-			outStr = outStr + copySeq(poss, anchaps[key].at(index), start, end);
+			outStr = outStr + copySeq(poss, anchaps.at(key).at(index), start, end);
 		}
 		hapout << outStr << endl;
 
