@@ -26,7 +26,7 @@ Param::Param(int argc, char ** argv) :
 		cerr << "Need more arguments than provided, use -h/--help to get more help" << endl;
 		exit(1);
 	}
-	bool givenSeed = 0;
+	bool givenSeed = false;
 
 	for (int i = 0; i < argc; ++i)
 	{
@@ -59,7 +59,7 @@ Param::Param(int argc, char ** argv) :
 		else if (arg == "-s" || arg == "--seed")
 		{
 			seed = unsigned(atol(argv[++i]));
-			givenSeed = 1;
+			givenSeed = true;
 		}
 	}
 

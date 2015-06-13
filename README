@@ -24,7 +24,8 @@ bash$ ./AdmixSim -h
 
 2. Test with the toy data
 
-bash$ ./AdmixSim --file toy.par --length 1.0 --input test --nsample 10 --output sim1
+bash$ ./AdmixSim --file toy.par --length 1.0 --input test --nsample 10 \
+   --output sim1
 
 Example explanation:
 AdmixSim will simulate an admixed population which evolves following 

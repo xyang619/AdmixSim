@@ -9,6 +9,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 #include "ChromPair.hpp"
 #include "PopModel.hpp"
 
@@ -25,8 +26,8 @@ PopModel::PopModel(const std::string & file)
 	vector<int> nhaps;
 	vector<int> nes;
 	vector<vector<double> > props;
-	bool ancSet = 0;
-	bool isStart = 0;
+	bool ancSet = false;
+	bool isStart = false;
 	string line;
 	while (getline(fin, line))
 	{
@@ -44,7 +45,7 @@ PopModel::PopModel(const std::string & file)
 		//check for the start point of population size and proportion
 		if (line.substr(0, 2) == "//")
 		{
-			isStart = 1;
+			isStart = true;
 			continue;
 		}
 		if (isStart && !ancSet)
@@ -61,7 +62,7 @@ PopModel::PopModel(const std::string & file)
 			{
 				nhaps.push_back(nhap);
 			}
-			ancSet = 1;
+			ancSet = true;
 		}
 		else if (isStart && iss)
 		{
@@ -104,10 +105,10 @@ bool PopModel::isValidNhap() const
 		if (nhaps.at(i) <= 0)
 		{
 			cerr << "Error: The size of ancestral haplotypes must be positive" << endl;
-			return 0;
+			return false;
 		}
 	}
-	return 1;
+	return true;
 }
 
 bool PopModel::isValidNe() const
@@ -118,10 +119,10 @@ bool PopModel::isValidNe() const
 		if (nes.at(i) <= 0)
 		{
 			cerr << "Error: Population size must be positive" << endl;
-			return 0;
+			return false;
 		}
 	}
-	return 1;
+	return true;
 }
 
 bool PopModel::isValidProp() const
@@ -137,23 +138,23 @@ bool PopModel::isValidProp() const
 			if (prop < 0 || prop > 1.0)
 			{
 				cerr << "Error: Admixture proportion must be between 0 and 1" << endl;
-				return 0;
+				return false;
 			}
 			tsum += prop;
 		}
 
-		if (i == 0 && tsum != 1.0)
+		if (i == 0 && abs(tsum - 1.0) > 1e-12)
 		{
 			cerr << "Error: The admixture proportion of initial generation must sum to 1" << endl;
-			return 0;
+			return false;
 		}
-		if (tsum > 1)
+		if (tsum - 1.0 > 1e-12)
 		{
 			cerr << "Error: The sum of admixture proportion in generation " << i + 1 << " is larger than 1" << endl;
-			return 0;
+			return false;
 		}
 	}
-	return 1;
+	return true;
 }
 int PopModel::getT() const
 {
