@@ -13,7 +13,7 @@
 using namespace std;
 
 Param::Param(int argc, char ** argv) :
-		nsample(10), seed(0), length(1.0), modfile(""), input(""), output("output")
+		nsample(10), seed(0), length(1.0), modfile(""), mapfile(""), hapfile(""), output("output")
 {
 	if (argc > 1 && (string(argv[1]) == "-h" || string(argv[1]) == "--help"))
 	{
@@ -48,9 +48,13 @@ Param::Param(int argc, char ** argv) :
 		{
 			nsample = atoi(argv[++i]);
 		}
-		else if (arg == "-i" || arg == "--input")
+		else if (arg == "-iM" || arg == "--mapfile")
 		{
-			input = string(argv[++i]);
+			mapfile = string(argv[++i]);
+		}
+		else if (arg == "-iH" || arg == "--hapfile")
+		{
+			hapfile = string(argv[++i]);
 		}
 		else if (arg == "-o" || arg == "--output")
 		{
@@ -68,9 +72,14 @@ Param::Param(int argc, char ** argv) :
 		cerr << "Model description file must be specified" << endl;
 		abort();
 	}
-	if (input.size() == 0)
+	if (mapfile.size() == 0)
 	{
-		cerr << "Input file must be specified" << endl;
+		cerr << "Map file must be specified" << endl;
+		abort();
+	}
+	if (hapfile.size() == 0)
+	{
+		cerr << "Anchap file must be specified" << endl;
 		abort();
 	}
 	if (output.size() == 0)
@@ -97,13 +106,15 @@ void Param::help()
 	cout << kProgram << "v" << kVersion << endl;
 	cout << kProgram << " is designed to simulate data for admixed population under various and complex scenarios." << endl;
 	cout << "Arguments:" << endl;
-	cout << "\t-h/--help\tprint help message[optional]" << endl;
-	cout << "\t-f/--file\tmodel description file [required]" << endl;
-	cout << "\t-i/--input\tprefix of input file [required]" << endl;
-	cout << "\t-l/--length\tlength of chromosome simulated [optional, default=1]" << endl;
-	cout << "\t-n/--nsample\tnumber of individuals sampled [optional, default=10]" << endl;
-	cout << "\t-o/--output\tprefix of output files [optional, default=output]" << endl;
-	cout << "\t-s/--seed\tseed of random generator [optional, default=time]" << endl;
+	cout << "\t-f/--modfile\t<string>\tModel description file [required]" << endl;
+	cout << "\t-iM/--mapfile\t<string>\tGenetic map file [required]" << endl;
+	cout << "\t-iH/--hapfile\t<string>\tAncestral haplotype file [required]" << endl;
+	cout << "\t-l/--length\t[double]\tLength of chromosome simulated [optional, default=1]" << endl;
+	cout << "\t-n/--nsample\t[integer]\tNumber of individuals sampled [optional, default=10]" << endl;
+	cout << "\t-o/--output\t[string]\tPrefix of output files [optional, default=output]" << endl;
+	cout << "\t-s/--seed\t[integer]\tSeed of random generator [optional, default=time]" << endl;
+	cout << "Options" << endl;
+	cout << "\t-h/--help\tPrint help message[optional]" << endl;
 	cout << "------------------------------------------------------------------------------" << endl;
 
 }
@@ -115,7 +126,8 @@ void Param::echo()
 	cout << "chromosome length: " << length << endl;
 	cout << "number of samples: " << nsample << endl;
 	cout << "model file: " << modfile << endl;
-	cout << "input file: " << input << ".hap " << input << ".map" << endl;
+	cout << "map file: " << mapfile << endl;
+	cout << "anchap file: " << hapfile << endl;
 	cout << "output prefix: " << output << endl;
 	cout << "random seed: " << seed << endl;
 	cout << "------------------------------------------------------------------------------" << endl;
@@ -136,9 +148,14 @@ string Param::getModfile() const
 	return modfile;
 }
 
-string Param::getInput() const
+string Param::getMapfile() const
 {
-	return input;
+	return mapfile;
+}
+
+string Param::getHapfile() const
+{
+	return hapfile;
 }
 
 string Param::getOutput() const

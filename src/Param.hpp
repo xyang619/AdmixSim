@@ -21,14 +21,16 @@ public:
 	int getNSample() const;
 	double getLength() const;
 	std::string getModfile() const;
-	std::string getInput() const;
+	std::string getMapfile() const;
+	std::string getHapfile() const;
 	std::string getOutput() const;
 private:
 	int nsample;
 	unsigned long seed;
 	double length;
 	std::string modfile;
-	std::string input;
+	std::string mapfile;
+	std::string hapfile;
 	std::string output;
 	void help();
 

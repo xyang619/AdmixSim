@@ -38,8 +38,8 @@ int main(int argc, char **argv)
 	nsample = par->getNSample();
 	modfile = par->getModfile();
 	length = par->getLength();
-	mapfile = par->getInput() + ".map";
-	ancfile = par->getInput() + ".hap";
+	mapfile = par->getMapfile();
+	ancfile = par->getHapfile();
 	hapfile = par->getOutput() + ".hap";
 	segfile = par->getOutput() + ".seg";
 	model = new PopModel(modfile);
