@@ -20,12 +20,12 @@ private:
 	void updateBreaks();
 public:
 	Chrom();
-	Chrom(const std::vector<Segment> & segments);
+	Chrom(const std::vector<Segment> &segments);
 	virtual ~Chrom();
 	double getLength() const;
 	int getNumSegments() const;
 	int indexOf(double pos) const;
-	void addSegment(Segment & segment);
+	void addSegment(Segment &segment);
 	std::vector<Segment> extSegment(double start, double end) const;
 	void smooth();
 	Segment getSegment(int index) const;

@@ -10,16 +10,17 @@
 using namespace std;
 Chrom::Chrom()
 {
-	std::vector<Segment> segments;
-	this->segments = segments;
-	std::vector<double> breaks;
-	this->breaks = breaks;
+	//std::vector<Segment> segments;
+	//this->segments = segments;
+	//std::vector<double> breaks;
+	//this->breaks = breaks;
 }
 
-Chrom::Chrom(const std::vector<Segment> & segments) :
+Chrom::Chrom(const std::vector<Segment> &segments) :
 		segments(segments)
 {
-	std::vector<double> breaks;
+	//std::vector<double> breaks;
+	breaks.clear();
 	for (size_t i = 0; i < segments.size(); ++i)
 	{
 		breaks.push_back(segments.at(i).getEnd());
@@ -28,7 +29,7 @@ Chrom::Chrom(const std::vector<Segment> & segments) :
 	{
 		breaks.pop_back();
 	}
-	this->breaks = breaks;
+	//this->breaks = breaks;
 }
 
 Chrom::~Chrom()
@@ -76,7 +77,7 @@ int Chrom::indexOf(double pos) const
 	}
 }
 
-void Chrom::addSegment(Segment & segment)
+void Chrom::addSegment(Segment &segment)
 {
 	if (segments.size() > 0)
 	{
@@ -179,7 +180,7 @@ void Chrom::print() const
 	}
 }
 
-std::ostream & operator<<(std::ostream & os, const Chrom & chr)
+std::ostream &operator<<(std::ostream &os, const Chrom &chr)
 {
 	int nseg = chr.getNumSegments();
 	for (int i = 0; i < nseg; ++i)

@@ -11,11 +11,11 @@
 
 Population::Population()
 {
-	std::vector<Chrom> chrs;
-	this->chrs = chrs;
+	//std::vector<Chrom> chrs;
+	//this->chrs = chrs;
 }
 
-Population::Population(const std::vector<Chrom> & chrs) :
+Population::Population(const std::vector<Chrom> &chrs) :
 		chrs(chrs)
 {
 }
@@ -30,13 +30,13 @@ std::vector<Chrom> Population::getChrs() const
 	return chrs;
 }
 
-Population & Population::addChr(Chrom & chr)
+Population &Population::addChr(Chrom &chr)
 {
 	chrs.push_back(chr);
 	return *this;
 }
 
-Population & Population::evolve(int nec)
+Population &Population::evolve(int nec)
 {
 	std::vector<Chrom> chrs_next;
 	size_t size = chrs.size();

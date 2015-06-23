@@ -9,6 +9,8 @@
 #define PARAM_HPP_
 
 #include <string>
+const std::string kProgram = "AdmixSim";
+const std::string kVersion = "1.0.3";
 
 class Param
 {

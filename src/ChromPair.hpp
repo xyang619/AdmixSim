@@ -16,15 +16,15 @@ private:
 	Chrom chrom1;
 	Chrom chrom2;
 	int getPoissonNumb(double lambda) const;
-	void breakPoints(double * breaks, int n) const;
+	void breakPoints(double *breaks, int n) const;
 public:
 	ChromPair();
-	ChromPair(const Chrom & chrom1, const Chrom & chrom2);
+	ChromPair(const Chrom &chrom1, const Chrom &chrom2);
 	virtual ~ChromPair();
 	Chrom getChrom(int index) const;
 	//double waitTime();
 	//void sort(double[], int);
-	ChromPair & recombine();
+	ChromPair &recombine();
 };
 
 #endif /* CHROMPAIR_HPP_ */

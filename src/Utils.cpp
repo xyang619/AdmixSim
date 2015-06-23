@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int findPos(const vector<double> & poss, double pos)
+int findPos(const vector<double> &poss, double pos)
 {
 	int left = 0;
 	int right = static_cast<int>(poss.size());
@@ -28,7 +28,7 @@ int findPos(const vector<double> & poss, double pos)
 	return left + 1;
 }
 
-string copySeq(const vector<double> & poss, const string & seq, double start, double end)
+string copySeq(const vector<double> &poss, const string &seq, double start, double end)
 {
 	int left, right;
 	left = findPos(poss, start);

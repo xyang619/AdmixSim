@@ -23,7 +23,7 @@ private:
 	bool isValidNe() const;
 	bool isValidProp() const;
 public:
-	PopModel(const std::string & file);
+	PopModel(const std::string &file);
 	virtual ~PopModel();
 	int getT() const;
 	int getK() const;

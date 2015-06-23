@@ -13,12 +13,12 @@
 
 ChromPair::ChromPair()
 {
-	Chrom chr1, chr2;
-	chrom1 = chr1;
-	chrom2 = chr2;
+	//Chrom chr1, chr2;
+	//chrom1 = chr1;
+	//chrom2 = chr2;
 }
 
-ChromPair::ChromPair(const Chrom & chrom1, const Chrom & chrom2) :
+ChromPair::ChromPair(const Chrom &chrom1, const Chrom &chrom2) :
 		chrom1(chrom1), chrom2(chrom2)
 {
 }
@@ -62,7 +62,7 @@ int ChromPair::getPoissonNumb(double lambda) const
 	return numb - 1;
 }
 
-void ChromPair::breakPoints(double * breaks, int n) const
+void ChromPair::breakPoints(double *breaks, int n) const
 {
 	double length = chrom1.getLength();
 	breaks[0] = 0.0;
@@ -91,7 +91,7 @@ void ChromPair::breakPoints(double * breaks, int n) const
 //	}
 //}
 
-ChromPair & ChromPair::recombine()
+ChromPair &ChromPair::recombine()
 {
 	if (chrom1.getLength() != chrom2.getLength())
 	{

@@ -15,7 +15,7 @@
 
 using namespace std;
 
-PopModel::PopModel(const std::string & file)
+PopModel::PopModel(const string &file)
 {
 	ifstream fin(file.c_str());
 	if (!fin.good())
@@ -23,9 +23,9 @@ PopModel::PopModel(const std::string & file)
 		cout << "Can't open model file " << file << endl;
 		exit(1);
 	}
-	vector<int> nhaps;
-	vector<int> nes;
-	vector<vector<double> > props;
+	//vector<int> nhaps;
+	//vector<int> nes;
+	//vector<vector<double> > props;
 	bool ancSet = false;
 	bool isStart = false;
 	string line;
@@ -80,9 +80,9 @@ PopModel::PopModel(const std::string & file)
 	}
 
 	fin.close();
-	this->nhaps = nhaps;
-	this->nes = nes;
-	this->props = props;
+	//this->nhaps = nhaps;
+	//this->nes = nes;
+	//this->props = props;
 	if (isValidNhap() && isValidNe() && isValidProp())
 	{
 		pop = Population();

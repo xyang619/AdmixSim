@@ -94,8 +94,8 @@ Param::~Param()
 void Param::help()
 {
 	cout << "------------------------------------------------------------------------------" << endl;
-	cout << "AdmixSim v1.0.3" << endl;
-	cout << "AdmixSim is designed to simulate data for admixed population under various and complex scenarios." << endl;
+	cout << kProgram << "v" << kVersion << endl;
+	cout << kProgram << " is designed to simulate data for admixed population under various and complex scenarios." << endl;
 	cout << "Arguments:" << endl;
 	cout << "\t-h/--help\tprint help message[optional]" << endl;
 	cout << "\t-f/--file\tmodel description file [required]" << endl;
