@@ -208,13 +208,17 @@ Here is an example:
  0.30178126      0.41594482      2
 
 
-4. Full argument list
-        -f/--file       model description file [required]
-        -i/--input      prefix of input file [required]
-        -l/--length     length of chromosome simulated [optional, default=1]
-        -n/--nsample    number of individuals sampled [optional, default=10]
-        -o/--output     prefix of output files [optional, default=output]
-        -s/--seed       seed of random generator [optional, default=time]
+4. Full arguments and options
+Arguments:
+	-f/--modfile	<string>	Model description file [required]
+	-iM/--mapfile	<string>	Genetic map file [required]
+	-iH/--hapfile	<string>	Ancestral haplotype file [required]
+	-l/--length		[double]	Length of chromosome simulated [optional, default=1]
+	-n/--nsample	[integer]	Number of individuals sampled [optional, default=10]
+	-o/--output		[string]	Prefix of output files [optional, default=output]
+	-s/--seed		[integer]	Seed of random generator [optional, default=time]
+Options
+	-h/--help	Print help message[optional]
 
 -h/--help
 if you forget the usage of any arguments, don't hesitate to use this one.
@@ -222,9 +226,11 @@ if you forget the usage of any arguments, don't hesitate to use this one.
 -f/--file <filename>
 This argument is required, in which to specify the model description file
 
--i/--input <prefix>
-This argument is required, in which user specify the prefix of the input map 
-file and haplotype file, i.e. prefix.map and prefix.hap.
+-iM/--mapfile <filename>
+This argument is required, in which user specify the input map.
+
+-iH/--hapfile <filename>
+This argument is required, in which user specify the ancestral haplotype file.
 
 -l/--length [value]
 This argument is optional, in which user can specify the length of chromosome 
