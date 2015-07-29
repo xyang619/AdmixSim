@@ -109,8 +109,8 @@ int main(int argc, char **argv)
 		for (int k = 0; k < nseg; ++k)
 		{
 			Segment seg = chr.getSegment(k);
-			int key = seg.getLabel() / 10000;
-			int index = seg.getLabel() % 10000;
+			int key = seg.getLabel() / 1000000;
+			int index = seg.getLabel() % 1000000;
 			double start = seg.getStart();
 			double end = seg.getEnd();
 			outStr = outStr + copySeq(poss, anchaps.at(key).at(index), start, end);
@@ -126,7 +126,7 @@ int main(int argc, char **argv)
 			int label;
 			start = seg.getStart();
 			end = seg.getEnd();
-			label = seg.getLabel() / 10000;
+			label = seg.getLabel() / 1000000;
 			segout << setprecision(8) << setw(16) << start << setw(16) << end << setw(4) << label << endl;
 		}
 

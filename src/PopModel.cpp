@@ -131,6 +131,12 @@ bool PopModel::isValidProp() const
 	int T = getT();
 	for (int i = 0; i < T; ++i)
 	{
+        int tempK = props.at(i).size();
+        if (tempK != K)
+        {
+            cerr << "Error: The number of ancestral contributions at generation " << i << " differ from the number of ancestral populations" << endl;
+            return false;
+        }
 		double tsum = 0;
 		for (int j = 0; j < K; ++j)
 		{
@@ -184,7 +190,7 @@ void PopModel::evolve(double len)
 	int T = getT();
 	for (int i = 0; i < T; ++i)
 	{
-		int numbHapsPrev = 0;
+		int numbHapsPrev = 0; //number of haplotypes should sampled from previous generation
 		int curNumbHaps = nes.at(i) * 2; //number of haplotypes
 		int numbHaps[K];
 		int sumNumbHaps = 0;
@@ -207,7 +213,8 @@ void PopModel::evolve(double len)
 				for (int k = 0; k < numbHaps[j]; k++)
 				{
 					std::vector<Segment> segs;
-					int lab = (j + 1) * 10000 + rand() % nhaps.at(j);
+                    //modified to support at max 999999 ancestral haplotypes per ancestral population
+					int lab = (j + 1) * 1000000 + rand() % nhaps.at(j);
 					segs.push_back(Segment(0, len, lab));
 					Chrom chr1(segs);
 					hapsCur.push_back(chr1);

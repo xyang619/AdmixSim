@@ -103,7 +103,7 @@ void Chrom::smooth()
 	{
 		Segment seg2 = segments.at(i);
 		//if adjacent segments have the same label, merge it
-		if (seg1.getLabel() / 10000 == seg2.getLabel() / 10000)
+		if (seg1.getLabel() / 1000000 == seg2.getLabel() / 1000000)
 		{
 			seg1.setEnd(seg2.getEnd());
 		}
