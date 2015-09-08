@@ -213,10 +213,10 @@ Arguments:
 	-f/--modfile	<string>	Model description file [required]
 	-iM/--mapfile	<string>	Genetic map file [required]
 	-iH/--hapfile	<string>	Ancestral haplotype file [required]
-	-l/--length		[double]	Length of chromosome simulated [optional, default=1]
+	-l/--length	[double]	Length of chromosome simulated [optional, default=1]
 	-n/--nsample	[integer]	Number of individuals sampled [optional, default=10]
-	-o/--output		[string]	Prefix of output files [optional, default=output]
-	-s/--seed		[integer]	Seed of random generator [optional, default=time]
+	-o/--output	[string]	Prefix of output files [optional, default=output]
+	-s/--seed	[integer]	Seed of random generator [optional, default=time]
 Options
 	-h/--help	Print help message[optional]
 
