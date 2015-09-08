@@ -40,7 +40,8 @@ Population &Population::evolve(int nec)
 {
 	std::vector<Chrom> chrs_next;
 	size_t size = chrs.size();
-	for (int i = 0; i < nec; ++i)
+    int nhaps = 2 * nec;
+	for (int i = 0; i < nhaps; ++i)
 	{
 		int ind1, ind2;
 		ind1 = rand() % size;
@@ -53,8 +54,8 @@ Population &Population::evolve(int nec)
 		Chrom chr2 = chrs.at(ind2);
 		ChromPair cp(chr1, chr2);
 		cp = cp.recombine();
-		chrs_next.push_back(cp.getChrom(1));
-		chrs_next.push_back(cp.getChrom(2));
+		chrs_next.push_back(cp.getChrom(rand() % 2));
+		//chrs_next.push_back(cp.getChrom(2));
 	}
 	this->chrs = chrs_next;
 	return *this;
