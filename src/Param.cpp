@@ -110,7 +110,7 @@ void Param::help()
 	cout << "\t-iM/--mapfile\t<string>\tGenetic map file [required]" << endl;
 	cout << "\t-iH/--hapfile\t<string>\tAncestral haplotype file [required]" << endl;
 	cout << "\t-l/--length\t[double]\tLength of chromosome simulated [optional, default=1]" << endl;
-	cout << "\t-n/--nsample\t[integer]\tNumber of individuals sampled [optional, default=10]" << endl;
+	cout << "\t-n/--sample\t[integer]\tNumber of individuals sampled [optional, default=10]" << endl;
 	cout << "\t-o/--output\t[string]\tPrefix of output files [optional, default=output]" << endl;
 	cout << "\t-s/--seed\t[integer]\tSeed of random generator [optional, default=time]" << endl;
 	cout << "Options" << endl;
