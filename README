@@ -24,7 +24,7 @@ bash$ ./AdmixSim -h
 
 2. Test with the toy data
 
-bash$ ./AdmixSim --file toy.par --length 1.0 --input test --nsample 10 \
+bash$ ./AdmixSim --modfile toy.par --length 1.0 --input test --sample 10 \
    --output sim1
 
 Example explanation:
@@ -210,11 +210,11 @@ Here is an example:
 
 4. Full arguments and options
 Arguments:
-	-f/--modfile	<string>	Model description file [required]
+	-m/--modfile	<string>	Model description file [required]
 	-iM/--mapfile	<string>	Genetic map file [required]
 	-iH/--hapfile	<string>	Ancestral haplotype file [required]
 	-l/--length	[double]	Length of chromosome simulated [optional, default=1]
-	-n/--nsample	[integer]	Number of individuals sampled [optional, default=10]
+	-n/--sample	[integer]	Number of individuals sampled [optional, default=10]
 	-o/--output	[string]	Prefix of output files [optional, default=output]
 	-s/--seed	[integer]	Seed of random generator [optional, default=time]
 Options
@@ -223,7 +223,7 @@ Options
 -h/--help
 if you forget the usage of any arguments, don't hesitate to use this one.
 
--f/--file <filename>
+-m/--modfile <filename>
 This argument is required, in which to specify the model description file
 
 -iM/--mapfile <filename>
@@ -236,7 +236,7 @@ This argument is required, in which user specify the ancestral haplotype file.
 This argument is optional, in which user can specify the length of chromosome 
 to be simulated, unit in Morgan. Default is 1.0 Morgan.
 
--n/--nsample [value]
+-n/--sample [value]
 This argument is optional, in which user can specify the number of haplotypes
 to be sampled at the end of simulation.
 
