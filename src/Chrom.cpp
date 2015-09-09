@@ -5,7 +5,7 @@
  *      Author: xiong_yang
  */
 
-#include <iostream>
+//#include <iostream>
 #include "Chrom.hpp"
 using namespace std;
 Chrom::Chrom()
@@ -169,16 +169,16 @@ std::vector<Segment> Chrom::extSegment(double start, double end) const
 	return extSegs;
 }
 
-void Chrom::print() const
-{
-	int i;
-	int nseg = getNumSegments();
-	for (i = 0; i < nseg; ++i)
-	{
-		Segment seg = getSegment(i);
-		std::cout << seg.getStart() << "\t" << seg.getEnd() << "\t" << seg.getLabel() << std::endl;
-	}
-}
+//void Chrom::print() const
+//{
+//	int i;
+//	int nseg = getNumSegments();
+//	for (i = 0; i < nseg; ++i)
+//	{
+//		Segment seg = getSegment(i);
+//		std::cout << seg.getStart() << "\t" << seg.getEnd() << "\t" << seg.getLabel() << std::endl;
+//	}
+//}
 
 std::ostream &operator<<(std::ostream &os, const Chrom &chr)
 {

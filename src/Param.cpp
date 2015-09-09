@@ -36,7 +36,7 @@ Param::Param(int argc, char ** argv) :
 			help();
 			exit(0);
 		}
-		else if (arg == "-f" || arg == "--file")
+		else if (arg == "-m" || arg == "--modfile")
 		{
 			modfile = string(argv[++i]);
 		}
@@ -44,7 +44,7 @@ Param::Param(int argc, char ** argv) :
 		{
 			length = atof(argv[++i]);
 		}
-		else if (arg == "-n" || arg == "--nsample")
+		else if (arg == "-n" || arg == "--sample")
 		{
 			nsample = atoi(argv[++i]);
 		}
@@ -102,11 +102,11 @@ Param::~Param()
 
 void Param::help()
 {
-	cout << "------------------------------------------------------------------------------" << endl;
+	cout << "---------------------------------------------------------" << endl;
 	cout << kProgram << "v" << kVersion << endl;
 	cout << kProgram << " is designed to simulate data for admixed population under various and complex scenarios." << endl;
 	cout << "Arguments:" << endl;
-	cout << "\t-f/--modfile\t<string>\tModel description file [required]" << endl;
+	cout << "\t-m/--modfile\t<string>\tModel description file [required]" << endl;
 	cout << "\t-iM/--mapfile\t<string>\tGenetic map file [required]" << endl;
 	cout << "\t-iH/--hapfile\t<string>\tAncestral haplotype file [required]" << endl;
 	cout << "\t-l/--length\t[double]\tLength of chromosome simulated [optional, default=1]" << endl;
@@ -115,13 +115,13 @@ void Param::help()
 	cout << "\t-s/--seed\t[integer]\tSeed of random generator [optional, default=time]" << endl;
 	cout << "Options" << endl;
 	cout << "\t-h/--help\tPrint help message[optional]" << endl;
-	cout << "------------------------------------------------------------------------------" << endl;
+	cout << "---------------------------------------------------------" << endl;
 
 }
 
 void Param::echo()
 {
-	cout << "------------------------------------------------------------------------------" << endl;
+	cout << "---------------------------------------------------------" << endl;
 	cout << "Arguments summary:" << endl;
 	cout << "chromosome length: " << length << endl;
 	cout << "number of samples: " << nsample << endl;
@@ -130,7 +130,7 @@ void Param::echo()
 	cout << "anchap file: " << hapfile << endl;
 	cout << "output prefix: " << output << endl;
 	cout << "random seed: " << seed << endl;
-	cout << "------------------------------------------------------------------------------" << endl;
+	cout << "---------------------------------------------------------" << endl;
 }
 
 int Param::getNSample() const

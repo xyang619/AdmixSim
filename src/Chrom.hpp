@@ -29,7 +29,8 @@ public:
 	std::vector<Segment> extSegment(double start, double end) const;
 	void smooth();
 	Segment getSegment(int index) const;
-	void print() const;
+	//void print() const;
+    friend std::ostream & operator<<(std::ostream &os, const Chrom &chrom);
 };
 
 #endif /* CHROM_HPP_ */
